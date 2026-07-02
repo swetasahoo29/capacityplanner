@@ -1,0 +1,358 @@
+Design Thinking Case Study
+Apparel Production Capacity Planner
+
+Developed By: Sweta Sahoo
+
+Technology Stack: Next.js, React, TypeScript, Supabase, PostgreSQL, Vercel
+
+1. Background
+
+Apparel manufacturing companies receive multiple customer orders every day. Before accepting a new production order, planners must determine whether the selected production line has sufficient capacity to complete the order before its shipment deadline.
+
+Each production line consists of four production departments:
+
+Cut
+ ↓
+Sew
+ ↓
+Finish
+ ↓
+Pack
+
+Each department has a different daily production capacity.
+
+Since production can only move as fast as the slowest department, the effective production capacity of a line is determined by its Bottleneck Department.
+
+Without a production planning system, factories often experience:
+
+Shipment delays
+Overloaded production lines
+Poor production visibility
+Manual spreadsheet-based planning
+Difficulty estimating production completion dates
+2. Problem Statement
+
+The objective of this Design Thinking case study is to develop a prototype that enables production planners to determine whether a production line can accommodate a new customer order over the next four weeks.
+
+The planning decision is based on:
+
+Production Line Capacity
+Department Capacities
+Incoming Order Quantity
+Production Start Date
+Shipment Date
+Bottleneck Department
+Production Completion Date
+
+The application should clearly indicate whether the order can be completed on time or if it will result in a production spillover.
+
+3. Design Thinking Process
+Empathize
+Primary Users
+Production Planner
+Factory Manager
+Capacity Planning Team
+User Pain Points
+Difficult to estimate production completion.
+Manual capacity calculations.
+No visibility into bottlenecks.
+Difficult to determine whether an order should be accepted.
+Limited visibility into future production capacity.
+Define
+Problem Statement
+
+How might we help production planners quickly determine whether a production line can accommodate a new order by automatically calculating production capacity, identifying bottlenecks, and visualizing factory availability?
+
+Ideate
+
+The proposed workflow is:
+
+Dashboard
+      ↓
+Production Planning Form
+      ↓
+Select Production Line
+      ↓
+Auto-load Department Capacities
+      ↓
+Enter Order Details
+      ↓
+Capacity Calculation
+      ↓
+Recommendation Popup
+      ↓
+Capacity Result
+      ↓
+Production Schedule
+      ↓
+Recent Production Plans
+      ↓
+4 Week Capacity Outlook
+Prototype
+
+A web application was developed using:
+
+Next.js
+React
+TypeScript
+Supabase
+PostgreSQL
+
+The prototype allows users to:
+
+Select a Production Line
+Automatically load department capacities
+Enter production order details
+Calculate effective production capacity
+Identify bottlenecks
+Estimate production completion date
+Detect production spillover
+Generate production recommendations
+View production schedule
+View recent production plans
+Visualize factory capacity over four weeks
+Test
+
+The application was tested using multiple production scenarios.
+
+The following validations were successfully completed:
+
+Production line retrieved successfully
+Department capacities loaded automatically
+Bottleneck identified correctly
+Effective capacity calculated correctly
+Required production days calculated
+Completion date estimated
+Factory status determined correctly
+Spillover detected correctly
+Recommendation popup displayed
+Production plan stored successfully
+Dashboard refreshed automatically
+Production schedule updated
+Recent production plans refreshed
+Four-week capacity outlook updated
+4. Solution Overview
+
+The solution consists of six major modules.
+
+Dashboard
+
+Displays:
+
+Factory Status
+Production Plans
+Production Lines
+
+Provides an overview of the current factory planning status.
+
+Production Planning
+
+Allows users to:
+
+Select Production Line
+Enter Style Name
+Enter Quantity
+Enter Production Start Date
+Enter Shipment Date
+
+Department capacities are automatically populated after selecting the production line.
+
+Capacity Calculation Engine
+
+The backend performs the following calculations:
+
+Read selected production line
+Identify bottleneck department
+Determine effective production capacity
+Calculate required production days
+Estimate completion date
+Compare completion date with shipment date
+Determine factory status
+Calculate production spillover
+Generate production recommendation
+Recommendation Popup
+
+After planning an order, the application immediately informs the planner whether the order can be accommodated.
+
+The popup displays:
+
+Order Accepted / Capacity Alert
+Production Line
+Quantity
+Completion Date
+Shipment Date
+Spillover Days (if applicable)
+Production Recommendation
+Production Schedule
+
+Displays all planned production orders sorted by production start date.
+
+Four Week Capacity Outlook
+
+Displays the production outlook for:
+
+Week 1
+Week 2
+Week 3
+Week 4
+
+Each week is categorized as:
+
+🟢 AVAILABLE
+
+🟡 NEAR FULL
+
+🔴 FULL
+
+5. High Level Architecture
+               User
+                 │
+                 ▼
+        Next.js Frontend (UI)
+                 │
+                 ▼
+      Next.js Route Handlers
+                 │
+                 ▼
+     Capacity Calculation Engine
+                 │
+                 ▼
+      Supabase PostgreSQL
+                 │
+                 ▼
+          JSON Response
+                 │
+                 ▼
+ Dashboard, Reports & Planning
+6. Database Design
+
+The application uses two database tables.
+
+Production Lines
+
+Stores:
+
+Production Line
+Category
+Cut Capacity
+Sew Capacity
+Finish Capacity
+Pack Capacity
+Effective Capacity
+Production Plans
+
+Stores:
+
+Production Line
+Style Name
+Quantity
+Production Start Date
+Shipment Date
+Required Production Days
+Estimated Completion Date
+Bottleneck Department
+Factory Status
+Relationship
+Production Lines (1)
+        │
+        ▼
+Production Plans (Many)
+7. Capacity Calculation Logic
+Read Production Line
+        │
+        ▼
+Read Department Capacities
+        │
+        ▼
+Find Bottleneck Department
+        │
+        ▼
+Effective Capacity
+        │
+        ▼
+Required Days =
+Quantity / Effective Capacity
+        │
+        ▼
+Completion Date
+        │
+        ▼
+Compare Shipment Date
+        │
+        ▼
+AVAILABLE        FULL
+    │              │
+    ▼              ▼
+No Spillover   Calculate Spillover
+        │
+        ▼
+Generate Recommendation
+8. Technology Stack
+Layer	Technology
+Frontend	Next.js
+UI	React
+Language	TypeScript
+Backend	Next.js Route Handlers
+Database	Supabase PostgreSQL
+Styling	CSS
+Deployment	Vercel
+Version Control	GitHub
+9. Key Features
+
+The prototype provides:
+
+Dashboard
+Production Planning Form
+Automatic Production Line Selection
+Department Capacity Display
+Bottleneck Detection
+Effective Capacity Calculation
+Completion Date Estimation
+Factory Status Detection
+Spillover Detection
+Production Recommendation Popup
+Production Schedule
+Recent Production Plans
+Four Week Capacity Outlook
+Responsive User Interface
+10. Business Value
+
+The application helps apparel factories by:
+
+Preventing shipment delays.
+Identifying production bottlenecks.
+Improving production planning.
+Reducing manual calculations.
+Providing better production visibility.
+Supporting faster order acceptance decisions.
+Improving production scheduling accuracy.
+11. Future Enhancements
+
+The prototype can be enhanced by adding:
+
+Automatic production line recommendation
+AI-based capacity prediction
+Dynamic scheduling
+Holiday-aware production planning
+Shift-wise production planning
+Multiple factory support
+Authentication and role management
+Email notifications
+Interactive Gantt charts
+Excel/PDF export
+Production analytics dashboard
+12. Conclusion
+
+The Apparel Production Capacity Planner successfully demonstrates a complete production planning workflow developed using the Design Thinking approach.
+
+The application enables production planners to:
+
+Evaluate production capacity
+Identify bottlenecks
+Estimate production completion dates
+Detect production spillovers
+Receive planning recommendations
+Visualize factory availability over a rolling four-week horizon
+Make informed order acceptance decisions
+
+By integrating Next.js, Supabase, and a simple capacity calculation engine, the prototype provides a practical, user-friendly solution for apparel production planning while meeting the objectives of the Design Thinking case study
