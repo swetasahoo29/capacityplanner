@@ -223,7 +223,6 @@ The application provides the following features.
 Displays
 
 - Factory Status
-- Current Utilization
 - Production Plans
 - Production Lines
 
@@ -234,7 +233,6 @@ Displays
 Allows users to
 
 - Select Production Line
-- View department capacities
 - Enter order details
 - Calculate capacity
 
@@ -515,9 +513,7 @@ Enter Order Details
 
         │
 
-Click
-
-Check Capacity
+Click Check Capacity
 
         │
 
@@ -1203,20 +1199,6 @@ Synchronizing all dashboard widgets after each successful production plan creati
 
 ---
 
-# Assumptions
-
-The following assumptions were made for this prototype:
-
-- One production line processes one order at a time.
-- Effective Capacity is the minimum department capacity.
-- Daily production remains constant.
-- Production starts on the selected production start date.
-- Weekends and holidays are not excluded.
-- Manpower remains unchanged during production.
-- Capacity utilization is simplified for demonstration purposes.
-
----
-
 # Future Improvements
 
 If this prototype were extended into a production-ready application, the following enhancements would be considered:
@@ -1252,90 +1234,6 @@ Implemented Features
 - Supabase Integration
 - Next.js Backend APIs
 - Responsive UI
-
----
-
-# 5-Minute Demo Script
-
-## Introduction (30 Seconds)
-
-"Hello everyone.
-
-This prototype solves the problem of determining whether an apparel factory is FULL or AVAILABLE before accepting new customer orders.
-
-The application calculates production capacity based on the bottleneck department and visualizes production over the next four weeks."
-
----
-
-## Dashboard (45 Seconds)
-
-"This dashboard provides an overview of the factory.
-
-It displays:
-
-- Factory Status
-- Current Utilization
-- Number of Production Plans
-- Production Lines"
-
----
-
-## Planner Form (1 Minute)
-
-"Here the production planner selects a production line.
-
-The department capacities are automatically loaded.
-
-The planner enters:
-
-- Style Name
-- Quantity
-- Production Start Date
-- Shipment Date
-
-When 'Check Capacity' is clicked, the request is sent to the backend."
-
----
-
-## Capacity Engine (1 Minute)
-
-"The backend reads the production line from Supabase.
-
-It determines the bottleneck by identifying the department with the lowest capacity.
-
-Using this effective capacity, it calculates:
-
-- Required Production Days
-- Completion Date
-- Factory Status
-
-The production plan is then stored in the database."
-
----
-
-## Results (1 Minute)
-
-"The application immediately displays:
-
-- Capacity Result
-- Completion Date
-- Bottleneck Department
-- Factory Status
-
-It also refreshes:
-
-- Dashboard
-- 4 Week Capacity Outlook
-- Production Schedule
-- Recent Production Plans"
-
----
-
-## Conclusion (45 Seconds)
-
-"This prototype demonstrates an end-to-end production planning workflow using Next.js and Supabase.
-
-It enables planners to make informed decisions before accepting new production orders and provides a clear visualization of factory capacity."
 
 ---
 

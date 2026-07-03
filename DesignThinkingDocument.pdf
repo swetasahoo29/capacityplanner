@@ -1,7 +1,6 @@
 Design Thinking Case Study
 Apparel Production Capacity Planner
 
-Developed By: Sweta Sahoo
 
 Technology Stack: Next.js, React, TypeScript, Supabase, PostgreSQL, Vercel
 
@@ -37,7 +36,6 @@ The objective of this Design Thinking case study is to develop a prototype that 
 The planning decision is based on:
 
 Production Line Capacity
-Department Capacities
 Incoming Order Quantity
 Production Start Date
 Shipment Date
@@ -131,6 +129,7 @@ Dashboard refreshed automatically
 Production schedule updated
 Recent production plans refreshed
 Four-week capacity outlook updated
+
 4. Solution Overview
 
 The solution consists of six major modules.
@@ -224,6 +223,7 @@ Each week is categorized as:
                  │
                  ▼
  Dashboard, Reports & Planning
+
 6. Database Design
 
 The application uses two database tables.
@@ -257,6 +257,7 @@ Production Lines (1)
         │
         ▼
 Production Plans (Many)
+
 7. Capacity Calculation Logic
 Read Production Line
         │
@@ -287,16 +288,18 @@ No Spillover   Calculate Spillover
         │
         ▼
 Generate Recommendation
+
 8. Technology Stack
 Layer	Technology
 Frontend	Next.js
-UI	React
+UI	      React
 Language	TypeScript
 Backend	Next.js Route Handlers
 Database	Supabase PostgreSQL
 Styling	CSS
 Deployment	Vercel
 Version Control	GitHub
+
 9. Key Features
 
 The prototype provides:
@@ -315,6 +318,7 @@ Production Schedule
 Recent Production Plans
 Four Week Capacity Outlook
 Responsive User Interface
+
 10. Business Value
 
 The application helps apparel factories by:
@@ -326,6 +330,7 @@ Reducing manual calculations.
 Providing better production visibility.
 Supporting faster order acceptance decisions.
 Improving production scheduling accuracy.
+
 11. Future Enhancements
 
 The prototype can be enhanced by adding:
@@ -341,6 +346,7 @@ Email notifications
 Interactive Gantt charts
 Excel/PDF export
 Production analytics dashboard
+
 12. Conclusion
 
 The Apparel Production Capacity Planner successfully demonstrates a complete production planning workflow developed using the Design Thinking approach.
